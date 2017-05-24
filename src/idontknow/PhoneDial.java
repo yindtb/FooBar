@@ -1,3 +1,13 @@
+/*
+This problem has a similar context given in LC:
+https://leetcode.com/problems/letter-combinations-of-a-phone-number/#/description
+
+Given a string of 1's, we can intepret the combinations of 1's as follows:
+(1->a, 11->b, 111->c, 1111->a, ...)
+Output all the possible intepretations.
+For example, 111 can be intepreted as c, ab, ba, aaa.
+*/
+
 package idontknow;
 
 import java.util.ArrayList;
@@ -25,7 +35,7 @@ public class PhoneDial {
             set.add(str[i % 3]);
             for (int j = 1; j < i; j++) {
                 for (String s1 : list.get(j)) {
-                    for (String s2 : list.get(i - 1)) {
+                    for (String s2 : list.get(i - j)) {
                         set.add(s1 + s2);
                         set.add(s2 + s1);
                     }
