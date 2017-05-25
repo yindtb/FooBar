@@ -45,6 +45,26 @@ public class PhoneDial {
         }
         return new ArrayList<>(list.get(len));
     }
+	
+	// More efficient
+	public List<String> phoneDial2(String s) {
+        int len = s.length();
+        if (len == 0) return new ArrayList<>();
+        String[] str = new String[]{"c", "a", "b"};
+        List<Set<String>> list = new ArrayList<>();
+        list.add(null);
+        for (int i = 1; i <= len; i++) {
+            Set<String> set = new HashSet<>();
+            set.add(str[i % 3]);
+            for (int j = 1; j < i; j++) { // Now only two for loops
+                for (String s1 : list.get(i - j)) {
+                    set.add(s1 + str[j % 3]);
+                }
+            }
+            list.add(set);
+        }
+        return new ArrayList<>(list.get(len));
+    }
 
     public static void main(String args[]) {
         PhoneDial a = new PhoneDial();
