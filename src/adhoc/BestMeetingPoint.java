@@ -1,3 +1,10 @@
+/*
+The problem:
+http://www.programcreek.com/2014/07/leetcode-best-meeting-point-java/
+
+The core of this question is how to find the median of a sequence of integers: two priority queues (or ordered trees).
+*/
+
 package adhoc;
 
 /**
